@@ -13,7 +13,7 @@ class _intropg2State extends State<intropg2> {
     return Container(
       height: 100,
       child: (
-          Image.asset('lib/images/iscrn1.jpeg')
+          Image.asset('lib/images/farmer.png')
       ),
     );
   }
