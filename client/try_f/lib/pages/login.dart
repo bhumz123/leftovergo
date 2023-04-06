@@ -2,6 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:try_f/home/restnt.dart';
 import 'package:flutter/material.dart';
 import 'package:try_f/models/user_cubit.dart';
+import 'package:try_f/pages/category.dart';
 import 'package:try_f/pages/signup.dart';
 import '../api/auth_api.dart';
 import '../models/user_models.dart';
@@ -27,29 +28,22 @@ class _LoginState extends State<Login> {
   }
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 241, 236, 220),
+
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
             Padding(
-            padding: const EdgeInsets.only(top: 200.0),
-            child: Center(
-            child: Container(
-            width: 200,
-
-            child:Text(
-              "Welcome",
-                style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Color(0xff4c505b),
-                fontSize: 48
-            ),
-            )
-            ),
-            ),
+              padding: const EdgeInsets.only(top:100.0),
+              child: Container(
+                height: 150,
+                alignment: Alignment.topCenter,
+                child: (
+                    Image.asset('lib/images/leftovergo_bg (1).png',)
+                ),
+              ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left:15.0,right: 15.0,top:100,bottom: 0),
+              padding: const EdgeInsets.only(left:15.0,right: 15.0,top:60,bottom: 0),
               //padding: EdgeInsets.symmetric(horizontal: 15),
               child: TextField(
                 controller: emailController,
@@ -61,7 +55,7 @@ class _LoginState extends State<Login> {
             ),
             Padding(
               padding: const EdgeInsets.only(
-                  left: 15.0, right: 15.0, top: 15, bottom: 20),
+                  left: 15.0, right: 15.0, top: 25, bottom: 20),
               //padding: EdgeInsets.symmetric(horizontal: 15),
               child: TextField(
                 controller: passwordController,
@@ -73,78 +67,93 @@ class _LoginState extends State<Login> {
               ),
             ),
 
-            Container(
-              height: 50,
-              width: 250,
-              decoration: BoxDecoration(
-                  color: Colors.green.shade200, borderRadius: BorderRadius.circular(20)),
-              child: ElevatedButton(
+            Padding(
+              padding: EdgeInsets.only(top:20.0),
+              child: Container(
+                height: 50,
+                width: 250,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(backgroundColor:Color(0XFFefe298),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)
+                      ) ),
+                  onPressed: () async {
+                    var authRes=await userAuth(emailController.text,passwordController.text);
+                    if (authRes.runtimeType==String){
+                      showDialog(context: context, builder: (context){
+                        return Dialog(
+                          child: Container(
+                            alignment: Alignment.center,
+                            height: 100,
+                            width: 250,
+                            decoration: BoxDecoration(
 
-                onPressed: () async {
-                  var authRes=await userAuth(emailController.text,passwordController.text);
-                  if (authRes.runtimeType==String){
-                    showDialog(context: context, builder: (context){
-                      return Dialog(
-                        child: Container(
-                          alignment: Alignment.center,
-                          height: 100,
-                          width: 250,
-                          decoration: BoxDecoration(),
-                          child: Text(
-                            authRes,
-                          style: TextStyle(
-                            fontSize: 15,
-                            color: Colors.black,
-                          ),),),
-                      );
-                    },);
-                  }
-                  else if(authRes.runtimeType==User){
-                    User user=authRes;
-                    //context.read<UserCubit>.emit(user);
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                      return resnt();
+                            ),
+                            child: Text(
+                              authRes,
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.black,
+                            ),),),
+                        );
+                      },);
                     }
-                    ));
-                  }
+                    else if(authRes.runtimeType==User){
+                      User user=authRes;
+                      //context.read<UserCubit>.emit(user);
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                        return resnt();
+                      }
+                      ));
+                    }
 
-                },
-                child: Text(
-                  'Login',
-                  style: TextStyle(color: Colors.black, fontSize: 25),
+                  },
+                  child: Text(
+                    'Login',
+                    style: TextStyle(
+                        fontFamily: 'RobotoCondensed',
+                        //fontStyle: ,
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.brown),
+                  ),
                 ),
               ),
             ),
 
           SizedBox(
-            height: 40,
+            height: 80,
           ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 TextButton(onPressed: (){
                   Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                    return RegisterPage();
+                    return cnctrPage();
                   }));
                 },
                     child: Text("REGISTER",
                 textAlign: TextAlign.left,
-                    style: TextStyle(
-                      decoration: TextDecoration.underline,
-                      color: Color(0xff4c505b),
-                      fontSize: 18
-                    ),
+                      style: TextStyle(
+                          fontFamily: 'RobotoCondensed',
+                          decoration: TextDecoration.underline,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black),
                     ),
                   style: ButtonStyle(),
                 ),
                 TextButton(onPressed: (){},
                   child: Text("Forgot Password?",
-
                     style: TextStyle(
+                        fontFamily: 'RobotoCondensed',
                         decoration: TextDecoration.underline,
-                        color: Color(0xff4c505b),
-                        fontSize: 18
-                    ),
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black),
                   ),
                   style: ButtonStyle(),
                 ),

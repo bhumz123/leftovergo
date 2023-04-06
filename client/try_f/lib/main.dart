@@ -7,6 +7,7 @@ import 'package:try_f/pages/signup.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'initial_screens/splash.dart';
 import 'models/user_models.dart';
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
 
       home: BlocProvider(
         create: (context)=>UserCubit(User(),),
-          child:const resnt()),
+          child:resnt()),
     );
   }
 }

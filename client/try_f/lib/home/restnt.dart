@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:try_f/pages/login.dart';
+import 'package:try_f/Variables/var_restnt.dart';
 
 
 class resnt extends StatefulWidget {
@@ -248,6 +249,7 @@ class _resntState extends State<resnt> {
                 padding: EdgeInsets.all(12),
                 child: Row(
                   children: [
+
                     Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -293,7 +295,6 @@ class _resntState extends State<resnt> {
                         Text('Vegetables',
                           style: TextStyle(
                               fontFamily: 'Product Sans',
-//fontStyle: ,
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
                               color: Colors.black),)
@@ -395,7 +396,22 @@ class _resntState extends State<resnt> {
 
             ),
           ),
-
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            padding: EdgeInsets.all(12),
+            child: Row(
+              children: [
+                Container(
+                  child: p_data(photo: 'lib/images/brd 1.png', pName: 'Britannia Bread', price: 35),
+                ),
+                    const SizedBox(width: 12),
+                Container(
+                  child: p_data(photo: 'lib/images/eegg 1.png', pName: 'Eggs', price: 120),
+                ),
+                const SizedBox(width: 12,),
+              ],
+            ),
+          ),
           BottomNavigationBar(
             unselectedFontSize: 15,
             unselectedLabelStyle: TextStyle(
