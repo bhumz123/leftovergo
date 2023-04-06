@@ -39,6 +39,10 @@ dependencies:
   hive_flutter: ^1.1.0
   http: ^0.13.5
   flutter_bloc: ^8.1.2
+  animated_splash_screen: ^1.3.0
+  lottie: ^2.3.1
+  smooth_page_indicator: ^1.0.1
+  provider: ^6.0.5
 
 dev_dependencies:
   flutter_test:
@@ -67,13 +71,26 @@ flutter:
     - lib/images/brd 1.png
     - lib/images/eegg 1.png
     - lib/images/restn1 2.png
-    - lib/images/atta.png
+    - lib/images/milk-box 1.png
     - lib/images/fruit.png
-    - lib/images/brd_photo.png
     - lib/images/Vector.png
     - lib/images/Vector (1).png
-    - lib/images/veggie.png
-    - lib/images/meat.png
+    - lib/images/veggie_new.png
+    - lib/images/meat_new.png
+    - lib/images/gluten.png
+    - lib/images/logo_icon.jpeg
+    - lib/images/leftovergo_bg (1).png
+    - lib/images/scrn_new.jpeg
+    - lib/images/farmer.png
+    - lib/images/donate.png
+    - lib/images/dollar.png
+    - lib/images/hand.png
+    - lib/images/cart.png
+    - lib/images/waste.png
+    - lib/images/restaurant.png
+    - lib/images/location.png
+    - lib/images/grocery.png
+    - lib/images/ngo_m.jpg
     #- lib/images/rlogo1.png
     #- lib/images/rlogo2.png
 
@@ -89,15 +106,15 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+     - family: RobotoCondensed
+       fonts:
+         - asset: lib/fonts/RobotoCondensed-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
+     - family: Product Sans
+       fonts:
+         - asset: lib/fonts/Product Sans Regular.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #

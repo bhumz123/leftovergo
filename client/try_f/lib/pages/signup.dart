@@ -16,22 +16,25 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 241, 236, 220),
+
       body: Container(
         padding: const EdgeInsets.all(20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'Sign Up',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 40,
+            Padding(
+              padding: const EdgeInsets.only(top:100.0),
+              child: Container(
+                height: 150,
+                alignment: Alignment.topCenter,
+                child: (
+                    Image.asset('lib/images/leftovergo_bg (1).png',)
+                ),
               ),
             ),
             const SizedBox(
-              height: 60,
+              height: 40,
             ),
             Form(
               key: _formKey,
@@ -109,12 +112,17 @@ class _RegisterPageState extends State<RegisterPage> {
                     },
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.fromLTRB(40, 15, 40, 15),
-                    ),
+                      backgroundColor:Color(0XFFefe298),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)
+                    ),),
                     child: const Text(
                       'SIGN UP',
                       style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
+                          fontFamily: 'RobotoCondensed',
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.brown),
                     ),
                   ),
                   const SizedBox(
@@ -123,7 +131,12 @@ class _RegisterPageState extends State<RegisterPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text('Already Registered?'),
+                      const Text('Already Registered?',
+                        style: TextStyle(
+                            fontFamily: 'RobotoCondensed',
+                            fontSize: 20,
+
+                            color: Colors.black),),
                       TextButton(
                         onPressed: () {
                           Navigator.pushReplacement(
@@ -134,7 +147,13 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                           );
                         },
-                        child: const Text('Sign In'),
+                        child: const Text('Sign In',
+                          style: TextStyle(
+                              fontFamily: 'RobotoCondensed',
+                              decoration: TextDecoration.underline,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black),),
                       ),
                     ],
                   ),
