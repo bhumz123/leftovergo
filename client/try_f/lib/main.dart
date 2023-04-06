@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
 
       home: BlocProvider(
         create: (context)=>UserCubit(User(),),
-          child:resnt()),
+          child:SplashScreen()),
     );
   }
 }
