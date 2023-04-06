@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:try_f/pages/login.dart';
 import 'package:try_f/Variables/var_restnt.dart';
+import 'package:try_f/pages/signup.dart';
 
 
 class resnt extends StatefulWidget {
@@ -43,7 +44,7 @@ void _showDialog(BuildContext context) {
                   onPressed: (){
                       (){
                 Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                        return Login();
+                        return RegisterPage();
                   }));
                   };
                 },
